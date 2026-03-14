@@ -1,4 +1,3 @@
-import { SparkLineChart } from 'recharts';
 import { LineChart, Line, ResponsiveContainer } from 'recharts';
 
 interface UtilizationSparklineProps {
