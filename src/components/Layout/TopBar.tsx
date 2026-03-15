@@ -5,17 +5,19 @@ import { Bell, RefreshCw } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const pageTitles: Record<string, { title: string; description: string }> = {
-  '/': { title: 'Overview', description: 'KiloClaw AWS Idle Instance Dashboard' },
-  '/scans': { title: 'Scan Management', description: 'Schedule and monitor detection scans' },
-  '/instances': { title: 'Idle Instance Explorer', description: 'Filterable instance inventory' },
-  '/metrics': { title: 'Metrics & Time-Series', description: 'CloudWatch telemetry visualization' },
-  '/cost-analysis': { title: 'Cost Analysis', description: 'FinOps waste identification' },
-  '/recommendations': { title: 'Recommendations', description: 'AI-powered optimization engine' },
+  '/': { title: 'Overview', description: 'Cloud Guardian multi-service resource dashboard' },
+  '/scans': { title: 'Scan Management', description: 'Schedule and monitor resource detection scans' },
+  '/resources': { title: 'Resource Explorer', description: 'Filterable cloud resource inventory across all services' },
+  '/metrics': { title: 'Metrics & Time-Series', description: 'CloudWatch telemetry for any AWS resource' },
+  '/cost-analysis': { title: 'Cost Analysis', description: 'FinOps waste identification across all services' },
+  '/recommendations': { title: 'Recommendations', description: 'AI-powered optimisation engine' },
+  '/services': { title: 'Service Registry', description: 'Plugin-based AWS service detector management' },
+  '/accounts': { title: 'AWS Accounts', description: 'Cross-account IAM role and credential management' },
 };
 
 export function TopBar() {
   const location = useLocation();
-  const page = pageTitles[location.pathname] ?? { title: 'KiloClaw', description: '' };
+  const page = pageTitles[location.pathname] ?? { title: 'Cloud Guardian', description: '' };
 
   return (
     <header className="h-14 flex items-center gap-4 border-b border-border bg-card/50 backdrop-blur-sm px-4 shrink-0">
