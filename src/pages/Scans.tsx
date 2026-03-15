@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { mockScans } from '@/data/mockScans';
 import { Play, RefreshCw, CheckCircle2, XCircle, Clock, Loader2 } from 'lucide-react';
 import { Region } from '@/types';
+import { AWSServiceName } from '@/types/cloud-resource';
 
 export default function Scans() {
   const [dialogOpen, setDialogOpen] = useState(false);
@@ -13,7 +14,7 @@ export default function Scans() {
   const failed = mockScans.filter(s => s.status === 'failed').length;
   const queued = mockScans.filter(s => s.status === 'queued').length;
 
-  const handleStart = (config: { accountId: string; regions: Region[]; timeWindowDays: number }) => {
+  const handleStart = (config: { accountId: string; regions: Region[]; timeWindowDays: number; serviceTypes: AWSServiceName[] }) => {
     console.log('Starting scan:', config);
   };
 
@@ -22,7 +23,7 @@ export default function Scans() {
       <div className="flex items-start justify-between">
         <div>
           <h2 className="text-xl font-bold text-foreground">Scan Management</h2>
-          <p className="text-sm text-muted-foreground mt-0.5">Schedule and monitor idle instance detection jobs</p>
+          <p className="text-sm text-muted-foreground mt-0.5">Schedule and monitor multi-service resource detection scans across all AWS accounts</p>
         </div>
         <div className="flex gap-2">
           <Button variant="outline" size="sm" className="h-8 text-xs gap-1.5 text-muted-foreground">

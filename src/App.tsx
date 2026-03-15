@@ -8,10 +8,12 @@ import { AppSidebar } from "@/components/Layout/Sidebar";
 import { TopBar } from "@/components/Layout/TopBar";
 import Index from "./pages/Index.tsx";
 import Scans from "./pages/Scans.tsx";
-import Instances from "./pages/Instances.tsx";
+import Resources from "./pages/Resources.tsx";
 import Metrics from "./pages/Metrics.tsx";
 import CostAnalysis from "./pages/CostAnalysis.tsx";
 import Recommendations from "./pages/Recommendations.tsx";
+import Services from "./pages/Services.tsx";
+import Accounts from "./pages/Accounts.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -27,10 +29,13 @@ function AppLayout() {
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/scans" element={<Scans />} />
-              <Route path="/instances" element={<Instances />} />
+              <Route path="/resources" element={<Resources />} />
+              <Route path="/instances" element={<Resources />} />
               <Route path="/metrics" element={<Metrics />} />
               <Route path="/cost-analysis" element={<CostAnalysis />} />
               <Route path="/recommendations" element={<Recommendations />} />
+              <Route path="/services" element={<Services />} />
+              <Route path="/accounts" element={<Accounts />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </main>
