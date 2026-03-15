@@ -48,7 +48,7 @@ export function ScanActivityFeed() {
                   {cfg.label}
                 </Badge>
                 {scan.status === 'completed' && (
-                  <p className="text-[10px] text-muted-foreground">{scan.idleFound} idle</p>
+                  <p className="text-[10px] text-muted-foreground">{scan.idleFound} flagged</p>
                 )}
               </div>
             </div>

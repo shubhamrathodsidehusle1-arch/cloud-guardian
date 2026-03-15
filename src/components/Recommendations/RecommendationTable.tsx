@@ -49,12 +49,15 @@ export function RecommendationTable() {
   };
 
   const exportCSV = () => {
-    const headers = ['Instance', 'Account', 'Region', 'Type', 'Action', 'Priority', 'Confidence', 'Monthly Savings', 'Annual Savings', 'Status'];
-    const rows = filtered.map(r => [r.instanceName, r.accountName, r.region, r.type, r.type, r.priority, r.confidence + '%', '$' + r.estimatedMonthlySavings, '$' + r.estimatedAnnualSavings, r.status]);
+    const headers = ['Resource', 'Account', 'Region', 'Type', 'Action', 'Priority', 'Confidence', 'Monthly Savings', 'Annual Savings', 'Status'];
+    const rows = filtered.map(r => [
+      r.instanceName, r.accountName, r.region, r.type, r.type,
+      r.priority, r.confidence + '%', '$' + r.estimatedMonthlySavings, '$' + r.estimatedAnnualSavings, r.status,
+    ]);
     const csv = [headers, ...rows].map(r => r.join(',')).join('\n');
     const a = document.createElement('a');
     a.href = 'data:text/csv,' + encodeURIComponent(csv);
-    a.download = 'kiloclaw-recommendations.csv';
+    a.download = 'cloud-guardian-recommendations.csv';
     a.click();
   };
 
@@ -96,7 +99,7 @@ export function RecommendationTable() {
           <TableHeader>
             <TableRow className="bg-muted/30 hover:bg-muted/30">
               <TableHead className="w-8"></TableHead>
-              <TableHead>Instance</TableHead>
+              <TableHead>Resource</TableHead>
               <TableHead>Account / Region</TableHead>
               <TableHead>Action</TableHead>
               <TableHead>Priority</TableHead>
